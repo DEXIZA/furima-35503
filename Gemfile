@@ -52,3 +52,9 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+# ーーー以下後付追加
+group :development do
+  gem 'rubocop', require: false
+end
+# ルボコップの導入→自動整形ツール
