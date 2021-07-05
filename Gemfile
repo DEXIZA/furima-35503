@@ -58,3 +58,5 @@ group :development do
   gem 'rubocop', require: false
 end
 # ルボコップの導入→自動整形ツール
+
+gem 'devise'
