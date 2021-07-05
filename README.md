@@ -1,14 +1,15 @@
 ## usersテーブル
 
-| Column           | Type       | Options     |
-| ---------------- | ---------- | ------------|
-| nickname         | string     | null: false |
-| email            | string     | null: false |
-| last_name        | string     | null: false |
-| first_name       | string     | null: false |
-| last_name_kana   | string     | null: false |
-| first_name_kana  | string     | null: false |
-| birthday         | date       | null: false |
+| Column           | Type       | Options                  |
+| ---------------- | ---------- | -------------------------|
+| nickname         | string     | null: false              |
+| email            | string     | null: false,unique: true |
+| password         | string     | null: false              |
+| last_name        | string     | null: false              |
+| first_name       | string     | null: false              |
+| last_name_kana   | string     | null: false              |
+| first_name_kana  | string     | null: false              |
+| birthday         | date       | null: false              |
 
 ### Association
 - has_many :items
@@ -30,9 +31,8 @@
 
 
 ### Association
-- belongs_to :users
-- belongs_to :purchase_records
-
+- belongs_to :user
+- has_one :purchase_record
 
 ## purchase_records テーブル
 
@@ -42,8 +42,9 @@
 | Item         | references | null: false, foreign_key: true |
 
 ### Association
-- belongs_to :users
-- has_one :items
+- belongs_to :user
+- belongs_to : item
+- has_one :shipping_add_info
 
 ## shipping_add_infos テーブル
 
@@ -59,4 +60,4 @@
 
 
 ### Association
-- has_one :purchase_records
+- belongs_to :purchase_record
