@@ -6,7 +6,7 @@ class User < ApplicationRecord
   with_options presence: true do
     validates :nickname
     validates :birthday
-    with_options presence: true, format: { with: /\A[ァ-ヶ]+\z/ } do
+    with_options presence: true, format: { with: /\A[ァ-ヶー]+\z/ } do
       # 全角カナの区別
       validates :last_name_kana
       validates :first_name_kana
