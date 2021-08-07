@@ -13,7 +13,6 @@ function item (){
     const profitNum = document.getElementById("profit");
     profitNum.innerHTML = Math.floor(countVal-commission);
 
-
   });
 };
 

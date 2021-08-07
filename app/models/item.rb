@@ -13,7 +13,7 @@ class Item < ApplicationRecord
       validates :condition_id 
       validates :shipping_charge_id 
       validates :prefecture_id 
-      validates :shipping_time_id     
+      validates :shipping_time_id
     end
   end
 end
