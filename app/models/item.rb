@@ -8,6 +8,7 @@ class Item < ApplicationRecord
     validates :description
     validates :price,numericality: true , inclusion: { in:300.. 9999999 }
     validates :user_id
+    validates :image
     with_options presence: true, numericality: { other_than: 1 } do
       validates :category_id
       validates :condition_id 
