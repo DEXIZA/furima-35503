@@ -10,11 +10,11 @@ RSpec.describe Item, type: :model do
         expect(@item).to be_valid
       end
       it 'priceが300以上だと登録出来る' do
-        @item.price='300'
+        @item.price = '300'
         expect(@item).to be_valid
       end
       it 'priceが9999999以下だと登録出来る' do
-        @item.price='9999999'
+        @item.price = '9999999'
         expect(@item).to be_valid
       end
     end
@@ -47,12 +47,12 @@ RSpec.describe Item, type: :model do
       it 'priceが299以下では登録できない' do
         @item.price = '299'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price is not included in the list")
+        expect(@item.errors.full_messages).to include('Price is not included in the list')
       end
       it 'priceが10000000以上では登録できない' do
         @item.price = '10000000'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price is not included in the list")
+        expect(@item.errors.full_messages).to include('Price is not included in the list')
       end
       it 'category_idが空では登録できない' do
         @item.category_id = ''
@@ -82,27 +82,27 @@ RSpec.describe Item, type: :model do
       it 'category_idが1では登録できない' do
         @item.category_id = '1'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Category must be other than 1")
+        expect(@item.errors.full_messages).to include('Category must be other than 1')
       end
       it 'condition_idが1では登録できない' do
         @item.condition_id = '1'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Condition must be other than 1")
+        expect(@item.errors.full_messages).to include('Condition must be other than 1')
       end
       it 'shipping_charge_idが1では登録できない' do
         @item.shipping_charge_id = '1'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Shipping charge must be other than 1")
+        expect(@item.errors.full_messages).to include('Shipping charge must be other than 1')
       end
       it 'prefecture_idが1では登録できない' do
         @item.prefecture_id = '1'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Prefecture must be other than 1")
+        expect(@item.errors.full_messages).to include('Prefecture must be other than 1')
       end
       it 'shipping_time_idが1では登録できない' do
         @item.shipping_time_id = '1'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Shipping time must be other than 1")
+        expect(@item.errors.full_messages).to include('Shipping time must be other than 1')
       end
     end
   end
