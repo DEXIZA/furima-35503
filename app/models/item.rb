@@ -15,4 +15,10 @@ class Item < ApplicationRecord
       validates :shipping_time_id
     end
   end
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to :shipping_charge
+  belongs_to :category
+  belongs_to :prefecture
+  belongs_to :shipping_time_id
+  belongs_to :condition_id
 end
