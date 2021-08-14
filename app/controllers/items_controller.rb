@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show,:destroy]
   # ログイン・ログアウトで判定、除外ページ以外はトップへの処理
   before_action :set_item, only: [:edit, :show,:update]
   before_action :move_to_index, only: [:edit,:update]
@@ -34,6 +34,12 @@ class ItemsController < ApplicationController
       render :edit
     end
     # 更新成功→詳細画面偏移　更新失敗→編集画面偏移の処理
+  end
+
+  def destroy
+    item = Item.find(params[:id])
+    item.destroy
+    redirect_to root_path
   end
 
   private
