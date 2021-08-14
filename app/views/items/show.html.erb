@@ -24,13 +24,13 @@
     </div>
 
     <% if user_signed_in?%> 
+    <%# ログイン・ログアウトの判定、ログアウト状態だと表示しない %>
       <% if current_user.id == @item.user_id %>
       <%# 投稿した本人が詳細ページを見た時の処理 %>
 
       <%= link_to "商品の編集", "#", method: :get, class: "item-red-btn" %>
       <p class="or-text">or</p>
       <%= link_to "削除", "#", method: :delete, class:"item-destroy" %>
-      <%# 誰でも良いのでログインだけしている判定の処理 %>
       <% else %>
       <%# 商品が売れていない場合はこちらを表示しましょう %>
       <%= link_to "購入画面に進む", "#" ,class:"item-red-btn"%>
