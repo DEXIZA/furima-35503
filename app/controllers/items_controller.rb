@@ -1,11 +1,10 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, except: [:index,:show]
+  before_action :authenticate_user!, except: [:index, :show]
   # ログイン・ログアウトで判定、除外ページ以外はトップへの処理
-  before_action :move_to_index, only:[:edit]
-
+  before_action :move_to_index, only: [:edit]
 
   def index
-    @items = Item.order("created_at DESC")
+    @items = Item.order('created_at DESC')
   end
 
   def new
@@ -58,8 +57,6 @@ class ItemsController < ApplicationController
 
   def move_to_index
     @item = Item.find(params[:id])
-    unless user_signed_in? && current_user.id == @item.user_id
-      redirect_to action: :index
-    end
+    redirect_to action: :index unless user_signed_in? && current_user.id == @item.user_id
   end
 end
