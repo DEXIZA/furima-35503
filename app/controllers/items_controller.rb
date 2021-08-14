@@ -24,7 +24,8 @@ class ItemsController < ApplicationController
     params.require(:item).permit(
       :item_name,
       :description,
-      :price, :category_id,
+      :price,
+      :category_id,
       :condition_id,
       :shipping_charge_id,
       :prefecture_id,
