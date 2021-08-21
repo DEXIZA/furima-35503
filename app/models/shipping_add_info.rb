@@ -1,0 +1,2 @@
+class ShippingAddInfo < ApplicationRecord
+end
