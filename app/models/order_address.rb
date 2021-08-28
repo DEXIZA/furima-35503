@@ -11,7 +11,7 @@ class OrderAddress
     validates :postal_code, format: { with: /\A[0-9]{3}-[0-9]{4}\z/ }
     validates :municipality
     validates :street_address
-    validates :phone_number, format: { with: /\A[0-9]{11}\z/ }
+    validates :phone_number, format: { with: /\A[0-9]{10,11}\z/ }
     with_options numericality: { other_than: 1 } do
       validates :prefecture_id
     end
