@@ -1,8 +1,8 @@
 class OrderAddress
   include ActiveModel::Model
-  attr_accessor :postal_code, :prefecture_id, :municipality, :street_address, :building_name, :phone_number, :item_id, :user_id
+  attr_accessor :postal_code, :prefecture_id, :municipality, :street_address, :building_name, :phone_number, :item_id, :user_id,:token
 
-  validates :prefecture_id, numericality: { other_than: 1 }
+  validates :token, presence: true
 
   with_options presence: true do
     validates :item_id
@@ -11,6 +11,9 @@ class OrderAddress
     validates :municipality
     validates :street_address
     validates :phone_number, format: {with: /\A[0-9]{11}\z/ }
+    with_options numericality: { other_than: 1 } do
+      validates :prefecture_id
+    end
   end
 
   def save
