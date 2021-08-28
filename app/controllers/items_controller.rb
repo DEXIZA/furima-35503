@@ -22,9 +22,11 @@ class ItemsController < ApplicationController
   end
 
   def show
+
   end
 
   def edit
+    redirect_to action: :index if @item.order.present?
   end
 
   def update
