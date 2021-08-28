@@ -44,13 +44,13 @@ RSpec.describe OrderAddress, type: :model do
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include("Postal code can't be blank")
       end
-      it 'postal_codeが「数字-数字」という形式で無いと登録できない' do
-        @order_address.postal_code = '11'
+      it 'postal_codeが「000-0000」という形式で無いと登録できない' do
+        @order_address.postal_code = '12-4567'
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include("Postal code is invalid")
       end
-      it 'postal_codeが「数字-数字」という形式で無いと登録できない②' do
-        @order_address.postal_code = '-11'
+      it 'postal_codeが「000-0000」という形式で無いと登録できない②' do
+        @order_address.postal_code = '123-567'
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include("Postal code is invalid")
       end
