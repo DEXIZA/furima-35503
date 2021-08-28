@@ -1,7 +1,9 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_item
   # ログイン・ログアウトで判定
+  before_action :set_item
+  before_action :move_to_index, only: [:index]
+
 
   def index
     redirect_to '/' if @item.order.present?
@@ -38,4 +40,8 @@ class OrdersController < ApplicationController
       currency: 'jpy'                 # 通貨の種類（日本円）
     )
   end
+  def move_to_index
+    redirect_to "/" if current_user.id == @item.user_id
+  end
+
 end
