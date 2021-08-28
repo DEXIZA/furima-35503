@@ -2,11 +2,10 @@ class OrdersController < ApplicationController
   before_action :authenticate_user!
   # ログイン・ログアウトで判定
   before_action :set_item
-  before_action :move_to_index, only: [:index]
+  before_action :move_to_index, only: [:index,:create]
 
 
   def index
-    redirect_to '/' if @item.order.present?
     @order_address = OrderAddress.new
   end
 
@@ -41,7 +40,7 @@ class OrdersController < ApplicationController
     )
   end
   def move_to_index
-    redirect_to "/" if current_user.id == @item.user_id
+    redirect_to "/" if current_user.id == @item.user_id || @item.order.present?
   end
 
 end
