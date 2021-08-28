@@ -1,13 +1,13 @@
-class CreateShippingAddInfos < ActiveRecord::Migration[6.0]
+class CreateAddresses < ActiveRecord::Migration[6.0]
   def change
-    create_table :shipping_add_infos do |t|
+    create_table :addresses do |t|
       t.string :postal_code,  null: false
       t.integer :prefecture_id,  null: false
       t.string :municipality,  null: false
       t.string :street_address,  null: false
       t.string :building_name
       t.string :phone_number,  null: false
-      t.references :purchase_record,  null: false, foreign_key: true
+      t.references :order,  null: false, foreign_key: true
       t.timestamps
     end
   end
