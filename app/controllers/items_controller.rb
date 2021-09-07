@@ -50,9 +50,9 @@ class ItemsController < ApplicationController
       :price,
       :category_id,
       :condition_id,
-      :shipping_charge_id,
+      :shippingcharge_id,
       :prefecture_id,
-      :shipping_time_id,
+      :shippingtime_id,
       :image
     )
           .merge(user_id: current_user.id)

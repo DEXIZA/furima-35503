@@ -79,20 +79,20 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("Condition can't be blank")
       end
-      it 'shipping_charge_idが空では登録できない' do
-        @item.shipping_charge_id = ''
+      it 'shippingcharge_idが空では登録できない' do
+        @item.shippingcharge_id = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include("Shipping charge can't be blank")
+        expect(@item.errors.full_messages).to include("Shippingcharge can't be blank")
       end
       it 'prefecture_idが空では登録できない' do
         @item.prefecture_id = ''
         @item.valid?
         expect(@item.errors.full_messages).to include("Prefecture can't be blank")
       end
-      it 'shipping_time_idが空では登録できない' do
-        @item.shipping_time_id = ''
+      it 'shippingtime_idが空では登録できない' do
+        @item.shippingtime_id = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include("Shipping time can't be blank")
+        expect(@item.errors.full_messages).to include("Shippingtime can't be blank")
       end
       it 'category_idが1では登録できない' do
         @item.category_id = 1
@@ -104,20 +104,20 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include('Condition must be other than 1')
       end
-      it 'shipping_charge_idが1では登録できない' do
-        @item.shipping_charge_id = 1
+      it 'shippingcharge_idが1では登録できない' do
+        @item.shippingcharge_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include('Shipping charge must be other than 1')
+        expect(@item.errors.full_messages).to include('Shippingcharge must be other than 1')
       end
       it 'prefecture_idが1では登録できない' do
         @item.prefecture_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include('Prefecture must be other than 1')
       end
-      it 'shipping_time_idが1では登録できない' do
-        @item.shipping_time_id = 1
+      it 'shippingtime_idが1では登録できない' do
+        @item.shippingtime_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include('Shipping time must be other than 1')
+        expect(@item.errors.full_messages).to include('Shippingtime must be other than 1')
       end
     end
   end

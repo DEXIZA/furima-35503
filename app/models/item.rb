@@ -11,15 +11,15 @@ class Item < ApplicationRecord
     with_options numericality: { other_than: 1 } do
       validates :category_id
       validates :condition_id
-      validates :shipping_charge_id
+      validates :shippingcharge_id
       validates :prefecture_id
-      validates :shipping_time_id
+      validates :shippingtime_id
     end
   end
   extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to :shipping_charge
+  belongs_to :shippingcharge
   belongs_to :category
   belongs_to :prefecture
-  belongs_to :shipping_time
+  belongs_to :shippingtime
   belongs_to :condition
 end
